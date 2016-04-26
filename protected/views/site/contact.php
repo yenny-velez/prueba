@@ -9,7 +9,7 @@ $this->breadcrumbs=array(
 );
 ?>
 
-<h1>Contact Us</h1>
+<h1 class="well">Contact Us</h1>
 
 <?php if(Yii::app()->user->hasFlash('contact')): ?>
 
@@ -34,35 +34,35 @@ If you have business inquiries or other questions, please fill out the following
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
+	<!-- ocualta los mensajes header de alertas recibe los parametros de entrada y el array la class del bootstrap-->
+	<?php echo $form->errorSummary($model,null,null,array("class"=>"alert alert-danger")); ?>
 
-	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
+	<div class="from">
 		<?php echo $form->labelEx($model,'name'); ?>
 		<?php echo $form->textField($model,'name'); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
-	<div class="row">
+	<div class="from">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email'); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
 
-	<div class="row">
+	<div class="from">
 		<?php echo $form->labelEx($model,'subject'); ?>
 		<?php echo $form->textField($model,'subject',array('size'=>60,'maxlength'=>128)); ?>
 		<?php echo $form->error($model,'subject'); ?>
 	</div>
 
-	<div class="row">
+	<div class="from">
 		<?php echo $form->labelEx($model,'body'); ?>
 		<?php echo $form->textArea($model,'body',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'body'); ?>
 	</div>
 
 	<?php if(CCaptcha::checkRequirements()): ?>
-	<div class="row">
+	<div class="from">
 		<?php echo $form->labelEx($model,'verifyCode'); ?>
 		<div>
 		<?php $this->widget('CCaptcha'); ?>
@@ -74,7 +74,7 @@ If you have business inquiries or other questions, please fill out the following
 	</div>
 	<?php endif; ?>
 
-	<div class="row buttons">
+	<div class="buttons">
 		<?php echo CHtml::submitButton('Submit'); ?>
 	</div>
 

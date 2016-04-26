@@ -4,7 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Prueba uno con git</h1>
+<h1 class="well" >Prueba uno con git</h1>
 
 <p>cambiar la configuracion</p>
 
